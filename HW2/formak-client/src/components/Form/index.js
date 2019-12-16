@@ -1,35 +1,52 @@
-import React, { useState } from 'react';
-import sampleFormData from '../../_dataSampleForm';
-import FieldOfType from './FieldOfType'
+import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+
+import FieldOfType from './FieldOfType';
 
 function Form() {
-  const { title, fields } = sampleFormData;
-  const [state, setState] = useState(() => {
-    return fields.reduce((acc, cur) => {
-      acc[cur.name] = ""
-      return acc
-    }, {});
-  });
+  const { id } = useParams();
+  const [form, setForm] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/forms/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setForm({
+          ...data.form,
+          controls: data.form.fields.reduce((acc, cur) => {
+            acc[cur.name] = ""
+            return acc
+          }, {})
+        });
+      });
+  }, [id]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    console.log(form.controls);
   }
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
-    setState({
-      ...state,
-      [name]: value
+    setForm({
+      ...form,
+      controls: {
+        ...form.controls,
+        [name]: value
+      }
     })
+  }
+
+  if (!form) {
+    return <p>Loading form...!</p>
   }
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <h1>{title}</h1>
-      {fields.map(field => (
+      <h1>{form.title}</h1>
+      {form.fields.map(field => (
         <div key={field.title}>
-          {renderField(field, state[field.name], handleFieldChange)}
+          {renderField(field, form.controls[field.name], handleFieldChange)}
         </div>
       ))}
 
