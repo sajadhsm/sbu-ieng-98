@@ -23,7 +23,16 @@ function Form() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(form.controls);
+    // TODO: Validation
+    fetch(`http://localhost:3001/forms/${id}`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form.controls)
+    })
+      .then(res => res.json())
+      .then(console.log)
   }
 
   const handleFieldChange = (e) => {
