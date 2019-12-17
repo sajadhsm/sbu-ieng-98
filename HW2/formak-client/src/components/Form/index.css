@@ -1,8 +1,56 @@
 .form {
   background: #fff;
   padding: 20px;
+  border: 1px solid var(--line-color);
   border-radius: 5px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
               0 10px 10px -5px rgba(0, 0, 0, 0.04),
               0 35px 2px -20px hsl(240, 20%, 92%);
+  color: var(--text-color-accent);
+}
+.form--small {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.form__title {
+  margin: 0.25em 0 1.25em;
+  text-align: center;
+}
+
+.form__field {
+  margin-bottom: 1.25em;
+}
+
+.form__field label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form__field input,
+.form__field select {
+  width: 100%;
+  vertical-align: middle;
+  padding: 10px;
+  border: 1px solid var(--line-color);
+  background: var(--background-color);
+  border-radius: 4px;
+  font-size: 1em;
+  color: var(--text-color-accent);
+}
+
+.form__submit-btn {
+  display: block;
+  width: 100%;
+  padding: 15px 10px;
+  color: #fff;
+  background: var(--main-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.25em;
+  transition: background 0.23s;
+}
+.form__submit-btn:hover {
+  background: var(--main-color-lighter);
 }

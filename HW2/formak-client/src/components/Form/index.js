@@ -54,15 +54,15 @@ function Form() {
 
   return (
     <div className="container">
-      <form className="form" onSubmit={handleFormSubmit}>
-        <h1>{form.title}</h1>
+      <form className="form form--small" onSubmit={handleFormSubmit}>
+        <h1 className="form__title">{form.title}</h1>
         {form.fields.map(field => (
-          <div key={field.title}>
+          <div className="form__field" key={field.title}>
             {renderField(field, form.controls[field.name], handleFieldChange)}
           </div>
         ))}
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="form__submit-btn">Submit</button>
       </form>
     </div>
   )

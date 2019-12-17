@@ -1,6 +1,7 @@
 :root {
   --main-color: hsl(232, 47%, 56%);
   --main-color-accent: hsl(230, 58%, 30%);
+  --main-color-lighter: hsl(230, 58%, 60%);
 
   --text-color: hsl(208, 13%, 45%);
   --text-color-accent: hsl(235, 26%, 35%);
