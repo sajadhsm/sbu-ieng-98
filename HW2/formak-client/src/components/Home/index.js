@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import Hero from './Hero'
+import LatestForms from './LatestForms'
+
+import './index.css';
 
 function Home() {
   const [forms, setForms] = useState([]);
@@ -13,16 +17,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Formak</h1>
-
-      <ul>
-        {forms.map(({ id, title }) => (
-          <li key={id}>
-            <Link to={`form/${id}`}>{title}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className="container">
+      <Hero />
+      <LatestForms forms={forms} />
     </div>
   )
 }

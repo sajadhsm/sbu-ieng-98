@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import FieldOfType from './FieldOfType';
 
+import './index.css';
+
 function Form() {
   const { id } = useParams();
   const [form, setForm] = useState(null);
@@ -51,16 +53,18 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <h1>{form.title}</h1>
-      {form.fields.map(field => (
-        <div key={field.title}>
-          {renderField(field, form.controls[field.name], handleFieldChange)}
-        </div>
-      ))}
+    <div className="container">
+      <form className="form" onSubmit={handleFormSubmit}>
+        <h1>{form.title}</h1>
+        {form.fields.map(field => (
+          <div key={field.title}>
+            {renderField(field, form.controls[field.name], handleFieldChange)}
+          </div>
+        ))}
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 

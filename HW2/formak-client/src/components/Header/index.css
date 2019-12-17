@@ -1,0 +1,16 @@
+.top-header {
+  background: #fff;
+  border-bottom: 1px solid var(--line-color);
+  padding: 15px 10px;
+}
+
+.top-header__navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-header__title {
+  text-decoration: none;
+  color: var(--main-color);
+  font-weight: bold;
+}

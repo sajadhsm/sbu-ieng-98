@@ -1,0 +1,45 @@
+.hero {
+  text-align: center;
+  padding: 75px 0;
+}
+
+.hero__title {
+  margin: 0;
+  color: var(--main-color);
+  font-size: 5rem;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.latest-forms-title {
+  text-align: center;
+  color: var(--text-color-accent);
+}
+
+.latest-forms {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1em;
+  gap: 1em;
+}
+
+.form-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line-color);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text-color-accent);
+  transition: border-color 0.23s;
+}
+.form-card:hover {
+  border-color: var(--main-color);
+}
