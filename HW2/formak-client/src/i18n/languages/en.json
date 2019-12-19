@@ -9,6 +9,7 @@
       "title": "Formak"
     },
     "form": {
+      "myLocation": "My location",
       "successSubmitMessage": "Form has been succesfully submited."
     }
   }

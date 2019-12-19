@@ -9,6 +9,7 @@
       "title": "فرمک"
     },
     "form": {
+      "myLocation": "موقعیت من",
       "successSubmitMessage": "فرم با موفقیت ثبت شد."
     }
   }
