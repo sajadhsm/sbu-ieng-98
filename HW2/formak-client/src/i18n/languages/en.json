@@ -2,7 +2,10 @@
   "translation": {
     "common": {
       "title": "Formak",
-      "description": "Minimal form service"
+      "description": "Minimal form service",
+      "latestForms": "Latest Forms",
+      "loading": "Loading...",
+      "submit": "Submit"
     }
   }
 }

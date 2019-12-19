@@ -2,7 +2,10 @@
   "translation": {
     "common": {
       "title": "فرمک",
-      "description": "سرویس مدیریت فرم مینیمال"
+      "description": "سرویس مدیریت فرم مینیمال",
+      "latestForms": "آخرین فرم‌ها",
+      "loading": "در حال بارگذاری...",
+      "submit": "ارسال"
     }
   }
 }

@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import FieldOfType from './FieldOfType';
 
 import './index.css';
+import { useTranslation } from 'react-i18next';
 
 function Form() {
   const { id } = useParams();
   const [form, setForm] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(`http://localhost:3001/forms/${id}`)
@@ -59,7 +61,7 @@ function Form() {
   };
 
   if (!form) {
-    return <p>Loading form...!</p>
+    return <p>{t('common.loading')}</p>
   }
 
   return (
@@ -76,7 +78,7 @@ function Form() {
           )
         })}
 
-        <button type="submit" className="form__submit-btn">Submit</button>
+        <button type="submit" className="form__submit-btn">{t('common.submit')}</button>
       </form>
     </div>
   )
