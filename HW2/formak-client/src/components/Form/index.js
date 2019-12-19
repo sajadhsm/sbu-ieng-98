@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 import FieldOfType from './FieldOfType';
 
@@ -84,6 +85,10 @@ function Form() {
 
   return (
     <div className="container">
+      <Helmet>
+        <title>{t('common.title')} - {form.title}</title>
+      </Helmet>
+
       <form className="form form--small" onSubmit={handleFormSubmit}>
         <h1 className="form__title">{form.title}</h1>
         {form.fields.map(field => {
