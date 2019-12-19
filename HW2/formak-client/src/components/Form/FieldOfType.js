@@ -1,4 +1,5 @@
 import React from 'react';
+import MapField from './Map';
 
 function FieldOfType({ field, value, handleChange }) {
   const { type, name } = field;
@@ -45,7 +46,7 @@ function FieldOfType({ field, value, handleChange }) {
       required={field.required} />
 
   } else if (type === "Location") {
-    return <p>Showing a map maybe?</p>
+    return <MapField name={name} handleChange={handleChange} />
   }
   return null;
 }

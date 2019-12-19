@@ -48,6 +48,16 @@ function Form() {
     })
   }
 
+  const handleMapFieldChange = (name, locations) => {
+    setForm({
+      ...form,
+      controls: {
+        ...form.controls,
+        [name]: locations
+      }
+    })
+  };
+
   if (!form) {
     return <p>Loading form...!</p>
   }
@@ -56,11 +66,15 @@ function Form() {
     <div className="container">
       <form className="form form--small" onSubmit={handleFormSubmit}>
         <h1 className="form__title">{form.title}</h1>
-        {form.fields.map(field => (
-          <div className="form__field" key={field.title}>
-            {renderField(field, form.controls[field.name], handleFieldChange)}
-          </div>
-        ))}
+        {form.fields.map(field => {
+          const onChange = field.type === "Location" ? handleMapFieldChange : handleFieldChange;
+
+          return (
+            <div className="form__field" key={field.title}>
+              {renderField(field, form.controls[field.name], onChange)}
+            </div>
+          )
+        })}
 
         <button type="submit" className="form__submit-btn">Submit</button>
       </form>
