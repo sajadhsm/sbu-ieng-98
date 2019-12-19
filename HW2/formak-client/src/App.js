@@ -9,7 +9,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Form from './components/Form'
 
-import './style.css'
+import './assets/css/style.css'
 
 function App() {
   return (
