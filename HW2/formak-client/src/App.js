@@ -13,22 +13,21 @@ import './assets/css/style.css'
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <main>
-        <Router>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
 
-            <Route path="/form/:id">
-              <Form />
-            </Route>
-          </Switch>
-        </Router>
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+
+          <Route path="/form/:id">
+            <Form />
+          </Route>
+        </Switch>
       </main>
-    </>
+    </Router>
   );
 }
 
