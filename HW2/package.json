@@ -1,0 +1,18 @@
+{
+  "name": "formak",
+  "version": "1.0.0",
+  "description": "Minimal form service",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "cd formak-server && npm install && npm run start",
+    "build": "cd formak-client && npm install && npm run build"
+  },
+  "cacheDirectories": [
+    "formak-server/node_modules",
+    "formak-client/node_modules"
+  ],
+  "author": "Sajad Hashemian",
+  "license": "MIT"
+}
