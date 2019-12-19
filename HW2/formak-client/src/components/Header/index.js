@@ -1,9 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import LanguageSelect from './LanguageSelect';
+
 import './index.css';
 
 export default function Header() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <header className="top-header">
@@ -12,10 +15,7 @@ export default function Header() {
           {t('common.title')}
         </a>
 
-        <div>
-          <button onClick={() => i18n.changeLanguage('en')}>EN</button>
-          <button onClick={() => i18n.changeLanguage('fa')}>فا</button>
-        </div>
+        <LanguageSelect />
       </nav>
     </header>
   )

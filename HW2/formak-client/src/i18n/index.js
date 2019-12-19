@@ -7,9 +7,9 @@ import fa from './languages/fa.json';
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    lng: "en",
+    lng: localStorage.getItem('language') || 'en',
     fallbackLng: "en",
-    
+
     interpolation: {
       escapeValue: false // react already safes from xss
     },

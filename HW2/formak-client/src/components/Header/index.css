@@ -1,16 +1,27 @@
 .top-header {
   background: #fff;
   border-bottom: 1px solid var(--line-color);
-  padding: 15px 10px;
+  padding: 10px;
 }
 
 .top-header__navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .top-header__title {
   text-decoration: none;
   color: var(--main-color);
   font-weight: bold;
+  font-size: 1.25em;
+}
+
+.language-select {
+  vertical-align: middle;
+  padding: 5px;
+  border: 1px solid var(--line-color);
+  background: var(--background-color);
+  border-radius: 4px;
+  color: var(--text-color-accent);
 }
