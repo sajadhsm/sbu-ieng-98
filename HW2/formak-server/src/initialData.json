@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "A smaple form",
+    "title": "A sample form",
     "fields": [
       {
         "name": "First_Name",
@@ -16,8 +16,8 @@
         "required": true
       },
       {
-        "name": "Cats_Count",
-        "title": "Number of cats",
+        "name": "Companions",
+        "title": "Number of companions",
         "type": "Number",
         "required": false
       },
@@ -85,6 +85,30 @@
         "name": "Age",
         "title": "Age",
         "type": "Date",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "زلزله در شهر",
+    "fields": [
+      {
+        "name": "full_name",
+        "title": "نام و نام‌خانوادگی",
+        "type": "Text",
+        "required": false
+      },
+      {
+        "name": "lost_people_count",
+        "title": "تعداد افراد مفقود شده",
+        "type": "Number",
+        "required": true
+      },
+      {
+        "name": "location",
+        "title": "موقعیت شما",
+        "type": "Location",
         "required": true
       }
     ]
