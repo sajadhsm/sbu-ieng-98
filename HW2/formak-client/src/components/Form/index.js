@@ -14,7 +14,7 @@ function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/forms/${id}`)
+    fetch(`/api/v1/forms/${id}`)
       .then(res => res.json())
       .then(data => {
         setForm({
@@ -30,7 +30,7 @@ function Form() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // TODO: Validation
-    fetch(`http://localhost:3001/forms/${id}`, {
+    fetch(`/api/v1/forms/${id}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

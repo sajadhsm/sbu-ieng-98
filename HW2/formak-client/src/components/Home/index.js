@@ -9,7 +9,7 @@ function Home() {
   const [forms, setForms] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/forms/')
+    fetch('/api/v1/forms/')
       .then(res => res.json())
       .then(data => {
         setForms(data.forms);
