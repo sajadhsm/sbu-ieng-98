@@ -1,11 +1,15 @@
 {
   "translation": {
     "common": {
-      "title": "فرمک",
       "description": "سرویس مدیریت فرم مینیمال",
+      "formsList": "لیست فرم‌ها",
       "latestForms": "آخرین فرم‌ها",
       "loading": "در حال بارگذاری...",
-      "submit": "ارسال"
+      "submit": "ارسال",
+      "title": "فرمک"
+    },
+    "form": {
+      "successSubmitMessage": "فرم با موفقیت ثبت شد."
     }
   }
 }

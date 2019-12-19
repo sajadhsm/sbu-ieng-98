@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import FieldOfType from './FieldOfType';
 
 import './index.css';
-import { useTranslation } from 'react-i18next';
 
 function Form() {
   const { id } = useParams();
-  const [form, setForm] = useState(null);
   const { t } = useTranslation();
+
+  const [form, setForm] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3001/forms/${id}`)
@@ -36,7 +38,10 @@ function Form() {
       body: JSON.stringify(form.controls)
     })
       .then(res => res.json())
-      .then(console.log)
+      .then(() => {
+        // TODO: Handle submittion error
+        setIsSubmitted(true);
+      })
   }
 
   const handleFieldChange = (e) => {
@@ -61,7 +66,20 @@ function Form() {
   };
 
   if (!form) {
-    return <p>{t('common.loading')}</p>
+    return <p style={{ textAlign: 'center' }}>{t('common.loading')}</p>
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="sucess-submission">
+        <p className="sucess-submission__message">
+          {t('form.successSubmitMessage')}
+        </p>
+        <Link className="sucess-submission__link" to="/">
+          {t('common.formsList')}
+        </Link>
+      </div>
+    )
   }
 
   return (

@@ -1,11 +1,15 @@
 {
   "translation": {
     "common": {
-      "title": "Formak",
       "description": "Minimal form service",
+      "formsList": "Forms List",
       "latestForms": "Latest Forms",
       "loading": "Loading...",
-      "submit": "Submit"
+      "submit": "Submit",
+      "title": "Formak"
+    },
+    "form": {
+      "successSubmitMessage": "Form has been succesfully submited."
     }
   }
 }

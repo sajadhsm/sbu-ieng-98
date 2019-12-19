@@ -54,3 +54,25 @@
 .form__submit-btn:hover {
   background: var(--main-color-lighter);
 }
+
+.sucess-submission {
+  margin: 5rem;
+  text-align: center;
+}
+.sucess-submission__message {
+  font-size: 2em;
+  color: var(--text-color-accent);
+}
+.sucess-submission__link {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #fff;
+  background: var(--main-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.23s;
+}
+.sucess-submission__link:hover {
+  background: var(--main-color-lighter);
+}
