@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 
 import FieldOfType from './FieldOfType';
+import Loading from '../common/Loading'
 
 import './index.css';
 
@@ -67,7 +68,7 @@ function Form() {
   };
 
   if (!form) {
-    return <p style={{ textAlign: 'center' }}>{t('common.loading')}</p>
+    return <Loading styles={{ margin: '50px auto' }} />
   }
 
   if (isSubmitted) {
