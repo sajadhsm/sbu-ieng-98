@@ -17,16 +17,16 @@ function LatestForms() {
     fetch('/api/v1/forms/')
       .then(res => res.json())
       .then(data => {
-        setState({
+        setState(() => ({
           forms: data.forms,
           isFetching: false
-        });
+        }));
       })
       .catch(() => {
-        setState({
+        setState(state => ({
           ...state,
           isFetching: false
-        })
+        }))
       })
   }, []);
 

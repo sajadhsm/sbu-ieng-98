@@ -1,10 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 function FormCards({ forms }) {
-  const { t } = useTranslation();
-
   return (
     <div className="form-cards">
       {forms.map(({ id, title }) => (
