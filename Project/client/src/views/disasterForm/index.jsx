@@ -41,6 +41,12 @@ export default function DisasterForm() {
       ],
       "required": true
     },
+    {
+      "name": "injuredDeadCount",
+      "title": "What is the number of injured or dead people in the region?",
+      "type": "number",
+      "required": false
+    }
   ];
   return (
     <>

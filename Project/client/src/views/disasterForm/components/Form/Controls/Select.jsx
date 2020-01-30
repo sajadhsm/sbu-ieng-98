@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function TextFormControl(props) {
+export default function SelectFormControl(props) {
   const { name, title, options, required, form, setForm } = props;
   const classes = useStyles();
 
