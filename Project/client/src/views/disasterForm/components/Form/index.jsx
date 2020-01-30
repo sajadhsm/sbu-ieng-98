@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import TextFormControl from './Controls/Text';
 import SelectFormControl from './Controls/Select';
 
+const useStyles = makeStyles(theme => ({
+  submit: {
+    margin: theme.spacing(3, 0, 0),
+  },
+}));
+
 export default function Form({ fields }) {
+  const classes = useStyles();
+
   const [form, setForm] = useState(() => {
     return fields.reduce((acc, cur) => {
       acc[cur.name] = cur.type === "text" ? ""
@@ -20,9 +29,17 @@ export default function Form({ fields }) {
 
   return (
     <form>
-      {fields.map(field => {
+      {/* {fields.map(field => {
         return renderFieldByType(field, form, setForm)
-      })}
+      })} */}
+
+      <Grid container spacing={3}>
+        {fields.map(field => (
+          <Grid key={field.name} item xs={12}>
+            {renderFieldByType(field, form, setForm)}
+          </Grid>
+        ))}
+      </Grid>
 
       <Button
         type="submit"
@@ -30,6 +47,8 @@ export default function Form({ fields }) {
         variant="contained"
         color="primary"
         onClick={handleFormSubmit}
+        className={classes.submit}
+        size="large"
       >
         Submit
       </Button>

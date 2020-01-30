@@ -1,11 +1,11 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
-import { Typography } from '@material-ui/core';
+// import { useParams } from "react-router-dom";
+import { Typography, Container, Card, CardContent } from '@material-ui/core';
 
 import Form from './components/Form';
 
 export default function DisasterForm() {
-  const { id } = useParams();
+  // const { id } = useParams();
   // Validate id first
 
   const fields = [
@@ -48,10 +48,15 @@ export default function DisasterForm() {
       "required": false
     }
   ];
+  const formTitle = "Flood in Shiraz";
   return (
-    <>
-      <Typography variant="h3" component="h2">Disaster: {id}</Typography>
-      <Form fields={fields} />
-    </>
+    <Container maxWidth="md" disableGutters>
+      <Card>
+        <CardContent>
+          <Typography gutterBottom variant="h4" component="h2">{formTitle}</Typography>
+          <Form fields={fields} />
+        </CardContent>
+      </Card>
+    </Container>
   );
 }

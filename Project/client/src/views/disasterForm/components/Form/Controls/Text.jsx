@@ -19,6 +19,8 @@ export default function TextFormControl(props) {
       required={required}
       value={form[name]}
       onChange={handleChange}
+      fullWidth
+      variant="outlined"
       type={isNumber ? "number" : "text"} />
   );
 }
