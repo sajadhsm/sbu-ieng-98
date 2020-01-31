@@ -35,9 +35,9 @@ export default function DisasterForm() {
 
   return (
     <Container maxWidth="md" disableGutters>
-      <Card>
+      <Card variant="outlined">
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">{title}</Typography>
+          <Typography gutterBottom variant="h4" component="h2" align="center">{title}</Typography>
           <Form formId={formId} fields={fields} />
         </CardContent>
       </Card>

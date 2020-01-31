@@ -14,7 +14,7 @@ export default function DisasterCard(props) {
     <Link underline="none" component={RouterLink} to={`/disaster/${id}`}>
       <Card variant="outlined">
         <CardContent>
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" align="center">
             {title}
           </Typography>
         </CardContent>

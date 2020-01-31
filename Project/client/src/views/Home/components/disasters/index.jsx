@@ -18,7 +18,13 @@ export default function DisastersList() {
 
   return (
     <>
-      <Typography variant="h3" component="h2">Disasters</Typography>
+      <Typography
+        variant="h4"
+        component="h2"
+        align="center"
+        gutterBottom>
+        Disasters
+      </Typography>
       <Disasters disasters={disasters} />
     </>
   );

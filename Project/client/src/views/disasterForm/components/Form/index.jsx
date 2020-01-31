@@ -78,6 +78,7 @@ export default function Form({ formId, fields }) {
         onClick={handleFormSubmit}
         className={classes.submit}
         size="large"
+        disableElevation
         disabled={isSubmitting}
       >
         {!isSubmitting ? "Submit" : <CircularProgress size={30} />}

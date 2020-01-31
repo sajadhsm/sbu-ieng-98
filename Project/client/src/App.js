@@ -4,25 +4,29 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Container } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 
-import DisastersList from './views/disasters';
+import TopHeader from './components/TopHeader';
+import Home from './views/Home';
 import DisasterForm from './views/disasterForm';
 
 function App() {
   return (
     <Router>
-      <Container maxWidth="lg">
-        <Switch>
-          <Route path="/disaster/:id">
-            <DisasterForm />
-          </Route>
+      <TopHeader />
+      <Box my={4}>
+        <Container maxWidth="lg">
+          <Switch>
+            <Route path="/disaster/:id">
+              <DisasterForm />
+            </Route>
 
-          <Route path="/">
-            <DisastersList />
-          </Route>
-        </Switch>
-      </Container>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Container>
+      </Box>
     </Router>
   );
 }
