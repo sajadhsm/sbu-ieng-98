@@ -1,59 +1,43 @@
-import React from 'react';
-// import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+import axios from 'axios';
 import { Typography, Container, Card, CardContent } from '@material-ui/core';
 
 import Form from './components/Form';
 
 export default function DisasterForm() {
-  // const { id } = useParams();
-  // Validate id first
+  const { id } = useParams();
+  const [form, setForm] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
 
-  const fields = [
-    {
-      "name": "name",
-      "title": "First Name",
-      "type": "text",
-      "required": true
-    },
-    {
-      "name": "lastName",
-      "title": "Last Name",
-      "type": "text",
-      "required": true
-    },
-    {
-      "name": "level",
-      "title": "Level",
-      "type": "select",
-      "options": [
-        {
-          "value": "low",
-          "text": "Low"
-        },
-        {
-          "value": "medium",
-          "text": "Medium"
-        },
-        {
-          "value": "high",
-          "text": "High"
-        }
-      ],
-      "required": true
-    },
-    {
-      "name": "injuredDeadCount",
-      "title": "What is the number of injured or dead people in the region?",
-      "type": "number",
-      "required": false
-    }
-  ];
-  const formTitle = "Flood in Shiraz";
+  useEffect(() => {
+    axios
+      .get(`/forms/${id}/`)
+      .then(response => {
+        setForm(response.data);
+        setIsFetching(false);
+      })
+      .catch(error => {
+        setIsFetching(false);
+      });
+  }, [id]);
+
+
+  if (isFetching) {
+    return "LOADING...";
+  }
+
+  if (!form) {
+    return "Sorry, no form found!"
+  }
+
+  const { title, fields } = form;
+
   return (
     <Container maxWidth="md" disableGutters>
       <Card>
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">{formTitle}</Typography>
+          <Typography gutterBottom variant="h4" component="h2">{title}</Typography>
           <Form fields={fields} />
         </CardContent>
       </Card>

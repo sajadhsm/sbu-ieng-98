@@ -19,6 +19,27 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:formId", (req, res) => {
+  const id = req.params.formId;
+  Form.findById(id)
+    .exec()
+    .then(doc => {
+      if (doc) {
+        res.status(status.OK).json(doc);
+      } else {
+        res.status(status.NOT_FOUND).json({
+          message: "No record found."
+        });
+      }
+    })
+    .catch(error => {
+      winston.error(error);
+      res.status(status.INTERNAL_SERVER_ERROR).json({
+        error
+      });
+    });
+});
+
 router.post("/", (req, res) => {
   const { title, fields } = req.body;
 
