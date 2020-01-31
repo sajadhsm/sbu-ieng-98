@@ -31,14 +31,14 @@ export default function DisasterForm() {
     return "Sorry, no form found!"
   }
 
-  const { title, fields } = form;
+  const { _id: formId, title, fields } = form;
 
   return (
     <Container maxWidth="md" disableGutters>
       <Card>
         <CardContent>
           <Typography gutterBottom variant="h4" component="h2">{title}</Typography>
-          <Form fields={fields} />
+          <Form formId={formId} fields={fields} />
         </CardContent>
       </Card>
     </Container>
