@@ -6,18 +6,19 @@ import {
 } from "react-router-dom";
 
 import FormsTable from './components/FormsTable';
+import FormDetail from './components/FormDetail';
 
 export default function Forms() {
   const { path } = useRouteMatch();
 
   return (
     <Switch>
-      <Route path={path}>
+      <Route exact path={path}>
         <FormsTable />
       </Route>
 
       <Route path={`${path}/:formId`}>
-        <p>Form Detail</p>
+        <FormDetail />
       </Route>
     </Switch>
   );

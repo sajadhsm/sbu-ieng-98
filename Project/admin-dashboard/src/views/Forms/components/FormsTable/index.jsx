@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Breadcrumbs from '../../../../shared/components/Breadcrumbs';
 import FormsTable from './FormsTable';
 
 export default function Forms() {
@@ -19,8 +20,15 @@ export default function Forms() {
       });
   }, []);
 
+  const bcItems = [
+    { text: "Dashboard", path: "/" },
+    { text: "Forms" }
+  ];
+
   return (
     <>
+      <Breadcrumbs items={bcItems} />
+
       <FormsTable forms={forms} loading={isFetching} />
     </>
   )

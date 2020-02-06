@@ -2,22 +2,19 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Redirect,
-  useRouteMatch
+  Redirect
 } from "react-router-dom";
 
 import Forms from './views/Forms';
 
 export default function Routes() {
-  const { path } = useRouteMatch();
-
   return (
     <Switch>
-      <Route exact path={path}>
-        <Redirect to={`${path}forms`} />
+      <Route exact path="/">
+        <Redirect to="/forms" />
       </Route>
 
-      <Route path={`${path}forms`}>
+      <Route path="/forms">
         <Forms />
       </Route>
     </Switch>

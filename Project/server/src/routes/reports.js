@@ -40,4 +40,19 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/:formId", (req, res) => {
+  const id = req.params.formId;
+  Report.find({ form: id })
+    .exec()
+    .then(docs => {
+      res.status(status.OK).json(docs);
+    })
+    .catch(error => {
+      winston.error(error);
+      res.status(status.INTERNAL_SERVER_ERROR).json({
+        error
+      });
+    });
+});
+
 module.exports = router;

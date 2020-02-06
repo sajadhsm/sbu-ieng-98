@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const reportSchema = new Schema({
   form: {
     type: Schema.Types.ObjectId,
-    ref: "Form"
+    ref: "Form",
+    required: true
   },
   responses: [
     {
