@@ -1,7 +1,11 @@
 import React from 'react';
+import { useHistory, useRouteMatch } from "react-router-dom";
 import MaterialTable from 'material-table';
 
 export default function FormsTable({ forms, loading }) {
+  const history = useHistory();
+  const { path } = useRouteMatch();
+
   const columns = [
     { title: 'title', field: 'title' },
     { title: 'Create Date', field: 'createdAt', type: 'datetime' },
@@ -17,12 +21,19 @@ export default function FormsTable({ forms, loading }) {
     }
   });
 
+  const handleRowClick = (event, rowData) => {
+    const { id } = rowData;
+
+    history.push(`${path}/${id}`)
+  }
+
   return (
     <MaterialTable
       title="Forms"
       columns={columns}
       data={data}
       isLoading={loading}
+      onRowClick={handleRowClick}
     />
   );
 }

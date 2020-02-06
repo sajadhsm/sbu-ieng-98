@@ -1,17 +1,8 @@
 import React from 'react';
-import {
-  Switch,
-  Route,
-  Redirect,
-  useRouteMatch
-} from "react-router-dom";
-
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
-import Layout from './Layout';
-import Forms from './components/Forms';
-
+import Navigations from './Navigations';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,25 +20,17 @@ const useStyles = makeStyles(theme => ({
   appBarSpacer: theme.mixins.toolbar
 }));
 
-export default function Dashboard() {
-  const { path } = useRouteMatch();
+export default function Layout({ children }) {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
-      <Layout />
+      <Navigations />
 
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Switch>
-            <Route exact path={path}>
-              <Redirect to={`${path}forms`} />
-            </Route>
-
-            <Route path={`${path}forms`}>
-              <Forms />
-            </Route>
-          </Switch>
+          {children}
         </Container>
       </main>
     </div>

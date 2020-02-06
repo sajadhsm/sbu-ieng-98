@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
 }));
 
-function ResponsiveDrawer(props) {
+export default function Navigations(props) {
   const { container } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -118,5 +118,3 @@ function ResponsiveDrawer(props) {
     </>
   );
 }
-
-export default ResponsiveDrawer;

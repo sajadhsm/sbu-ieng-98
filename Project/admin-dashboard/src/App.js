@@ -1,20 +1,17 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route
+  BrowserRouter as Router
 } from "react-router-dom";
 
-import Dashboard from './views/Dashboard';
+import Layout from './shared/components/Layout';
+import Routes from './Routes';
 
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <Switch>
-        <Route path="/">
-          <Dashboard />
-        </Route>
-      </Switch>
+      <Layout>
+        <Routes />
+      </Layout>
     </Router>
   );
 }
