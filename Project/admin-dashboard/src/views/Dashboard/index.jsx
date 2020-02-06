@@ -41,10 +41,10 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Switch>
             <Route exact path={path}>
-              <Redirect to={`${path}/forms`} />
+              <Redirect to={`${path}forms`} />
             </Route>
 
-            <Route path={`${path}/forms`}>
+            <Route path={`${path}forms`}>
               <Forms />
             </Route>
           </Switch>

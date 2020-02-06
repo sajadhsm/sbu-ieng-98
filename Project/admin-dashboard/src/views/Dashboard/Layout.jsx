@@ -11,11 +11,9 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-  IconButton
+  IconButton,
+  Icon
 } from '@material-ui/core';
-
-import ViewListIcon from '@material-ui/icons/ViewList';
-import MenuIcon from '@material-ui/icons/Menu';
 
 const drawerWidth = 240;
 
@@ -56,7 +54,7 @@ function ResponsiveDrawer(props) {
       <List>
         <ListItem button>
           <ListItemIcon>
-            <ViewListIcon />
+            <Icon>menu</Icon>
           </ListItemIcon>
           <ListItemText primary="Forms" />
         </ListItem>
@@ -76,7 +74,7 @@ function ResponsiveDrawer(props) {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon />
+            <Icon>menu</Icon>
           </IconButton>
           <Typography variant="h6" noWrap>
             Dashboard
