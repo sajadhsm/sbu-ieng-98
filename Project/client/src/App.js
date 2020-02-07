@@ -17,12 +17,12 @@ function App() {
       <Box my={4}>
         <Container maxWidth="lg">
           <Switch>
-            <Route path="/disaster/:id">
-              <DisasterForm />
+            <Route exact path="/">
+              <Home />
             </Route>
 
-            <Route path="/">
-              <Home />
+            <Route path="/disaster/:id">
+              <DisasterForm />
             </Route>
           </Switch>
         </Container>

@@ -9,6 +9,7 @@
   "author": "Sajad Hashemian",
   "license": "MIT",
   "dependencies": {
+    "@turf/turf": "^5.1.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
