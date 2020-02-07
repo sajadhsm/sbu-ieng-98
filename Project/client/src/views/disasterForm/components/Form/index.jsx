@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Button, Grid, CircularProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Alert, AlertTitle } from '@material-ui/lab';
 
 import TextFormControl from './Controls/Text';
 import SelectFormControl from './Controls/Select';
-import axios from 'axios';
+import MapFormControl from './Controls/Map';
 
 const useStyles = makeStyles(theme => ({
   submit: {
@@ -117,6 +118,14 @@ function renderFieldByType(field, form, setForm) {
         title={field.title}
         options={field.options}
         required={field.required} />
+
+    case "location":
+      return <MapFormControl
+        form={form}
+        setForm={setForm}
+        name={field.name}
+        title={field.title}
+      />
 
     default:
       return null;
