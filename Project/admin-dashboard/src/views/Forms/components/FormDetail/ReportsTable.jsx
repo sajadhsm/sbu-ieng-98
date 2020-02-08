@@ -1,6 +1,6 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-import { Box } from '@material-ui/core';
+import { Box, Grid, Paper, Typography } from '@material-ui/core';
 
 import Map from './Map';
 
@@ -61,16 +61,53 @@ export default function ReportsTable({ fields, reports }) {
     )
   }
 
+  const numberFields = fields
+    .filter(field => field.type === "number")
+    .map(({ name, title }) => ({ name, title }));
+
+  const numberData = numberFields.reduce((acc, curr) => {
+    const total = data.reduce((sum, row) => {
+      sum += Number(row[curr.name]);
+      return sum;
+    }, 0);
+
+    acc[curr.name] = total;
+    return acc;
+  }, {});
+
+  console.log(numberData);
+
   return (
-    <MaterialTable
-      title="Reports"
-      columns={columns}
-      data={data}
-      detailPanel={renderDetailPanel}
-      options={{
-        exportButton: true,
-        exportFileName: "form_reports"
-      }}
-    />
+    <Paper>
+      <MaterialTable
+        title="Reports"
+        columns={columns}
+        data={data}
+        detailPanel={renderDetailPanel}
+        options={{
+          exportButton: true,
+          exportFileName: "form_reports"
+        }}
+        style={{ boxShadow: 'none' }}
+      />
+
+      <Box p={2}>
+        <Typography variant="h5" component="p" gutterBottom>
+          Summary:
+        </Typography>
+
+        <Grid container justify="space-between">
+          {
+            Object.keys(numberData).map(key => (
+              <Grid item key={key}>
+                <Typography variant="h6" component="p" gutterBottom>
+                  <b>{key}:</b> {numberData[key]}
+                </Typography>
+              </Grid>
+            ))
+          }
+        </Grid>
+      </Box>
+    </Paper>
   );
 }
