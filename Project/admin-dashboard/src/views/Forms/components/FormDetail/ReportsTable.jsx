@@ -38,9 +38,6 @@ export default function ReportsTable({ fields, reports }) {
       title="Reports"
       columns={columns}
       data={data}
-      options={{
-        search: false
-      }}
     />
   );
 }

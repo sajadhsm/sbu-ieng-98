@@ -7,6 +7,7 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import TextFormControl from './Controls/Text';
 import SelectFormControl from './Controls/Select';
 import MapFormControl from './Controls/Map';
+import DateFormControl from './Controls/Date';
 
 const useStyles = makeStyles(theme => ({
   submit: {
@@ -21,8 +22,19 @@ export default function Form({ formId, fields }) {
 
   const [form, setForm] = useState(() => {
     return fields.reduce((acc, cur) => {
-      acc[cur.name] = cur.type === "text" ? ""
-        : cur.type === "number" ? 0 : [];
+      const {name, type} = cur;
+      
+      let val = [];
+      
+      if (type === "number") {
+        val = 0;
+      } else if (type === "date") {
+        val = new Date().toISOString();
+      } else if (type === "text") {
+        val = ""
+      }
+
+      acc[name] = val;
       return acc
     }, {})
   });
@@ -121,6 +133,14 @@ function renderFieldByType(field, form, setForm) {
 
     case "location":
       return <MapFormControl
+        form={form}
+        setForm={setForm}
+        name={field.name}
+        title={field.title}
+      />
+
+    case "date":
+      return <DateFormControl
         form={form}
         setForm={setForm}
         name={field.name}
