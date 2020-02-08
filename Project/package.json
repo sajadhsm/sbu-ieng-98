@@ -1,0 +1,19 @@
+{
+  "name": "kritical",
+  "version": "0.1.0",
+  "description": "A crisis management system to make critical situations kritical",
+  "engines": {
+    "node": "12.x"
+  },
+  "scripts": {
+    "start": "cd server && npm install && npm run start",
+    "build": "cd client && npm install && npm run build && cd ../admin-dashboard && npm install && npm run build"
+  },
+  "cacheDirectories": [
+    "server/node_modules",
+    "client/node_modules",
+    "admin-dashboard/node_modules"
+  ],
+  "author": "Sajad Hashemian",
+  "license": "MIT"
+}
