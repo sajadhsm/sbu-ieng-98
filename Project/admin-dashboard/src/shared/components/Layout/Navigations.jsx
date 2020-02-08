@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -52,7 +53,7 @@ export default function Navigations(props) {
   const drawer = (
     <>
       <List>
-        <ListItem button>
+        <ListItem button component={Link} to="/forms">
           <ListItemIcon>
             <Icon>menu</Icon>
           </ListItemIcon>
