@@ -61,6 +61,20 @@ router.post("/", (req, res) => {
     });
 });
 
+router.put("/:formId", (req, res) => {
+  Form.findByIdAndUpdate(req.params.formId, req.body, { new: true })
+    .exec()
+    .then(result => {
+      res.status(status.OK).json(result);
+    })
+    .catch(error => {
+      winston.error(error);
+      res.status(status.INTERNAL_SERVER_ERROR).json({
+        error
+      });
+    });
+});
+
 router.delete("/:formId", (req, res) => {
   Form.remove({ _id: req.params.formId })
     .exec()

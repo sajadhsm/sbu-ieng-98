@@ -37,6 +37,21 @@ router.post("/", (req, res) => {
     });
 });
 
+router.put("/:polygonId", (req, res) => {
+  const { feature } = req.body;
+  Polygon.findByIdAndUpdate(req.params.polygonId, feature, { new: true })
+    .exec()
+    .then(result => {
+      res.status(status.OK).json(result);
+    })
+    .catch(error => {
+      winston.error(error);
+      res.status(status.INTERNAL_SERVER_ERROR).json({
+        error
+      });
+    });
+});
+
 router.delete("/:polygonId", (req, res) => {
   Polygon.remove({ _id: req.params.polygonId })
     .exec()
