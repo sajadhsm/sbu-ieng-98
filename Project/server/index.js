@@ -25,7 +25,7 @@ app.get('*', (_, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
-const PORT = process.env.APP_PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`)
