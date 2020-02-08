@@ -9,7 +9,7 @@ import theme from './theme';
 
 import * as serviceWorker from './serviceWorker';
 
-axios.defaults.baseURL = 'http://127.0.0.1:3001/api/v1';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || '/api/v1';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
