@@ -34,6 +34,10 @@ export default function FormsTable({ forms, loading }) {
       data={data}
       isLoading={loading}
       onRowClick={handleRowClick}
+      options={{
+        exportButton: true,
+        exportFileName: "forms"
+      }}
     />
   );
 }
